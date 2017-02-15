@@ -12,7 +12,7 @@ function printListFromTailToHead(head)
         arr.push(head.val);
         head = head.next;
     }
-    while(arr){
+    if(arr){
         return arr.reverse();
     }
 }
