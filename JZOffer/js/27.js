@@ -20,19 +20,17 @@ function ConvertNode(node, lastNode){
     if(!node){
         return;
     }
-    var current = node;
-    if(current.left){
-        lastNode = ConvertNode(current.left, lastNode);
+    if(node.left){
+        lastNode = ConvertNode(node.left, lastNode);
     }
-    current.left = lastNode;
+    node.left = lastNode;
     if(lastNode){
-        lastNode.right = current;
+        lastNode.right = node;
     }
-    lastNode = current;
-    if(current.right){
-        lastNode = ConvertNode(current.right, lastNode);
+    lastNode = node;
+    if(node.right){
+        lastNode = ConvertNode(node.right, lastNode);
     }
-
     return lastNode;
 }
 var node1 = new TreeNode(10),
