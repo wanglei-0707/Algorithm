@@ -205,7 +205,7 @@ function mergeSort(arr){
         for(var j=0,k=0;k<lim;j++,k+=2){
             work[j] = merge(work[k], work[k+1]);
         }
-        work[l] = [];
+        work[lim] = [];
     }
     return work[0];
 }
