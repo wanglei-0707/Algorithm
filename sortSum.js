@@ -5,6 +5,7 @@ var origin1 =[1,2,3,4,5,6,7,8,9];
 最佳情况：正序 T(n) = O(n)
 最差情况：反序 T(n) = O(n^2)
 平均情况：T(n) = O(n^2)
+稳定
 */
 function bubbleSort(arr){
     var len = arr.length;
@@ -29,14 +30,15 @@ function bubbleSort(arr){
 由于pos位置之后的记录均已交换到位,故在进行下一趟排序时只要扫描到pos位置即可。*/
 function bubbleSort2(arr) {
     var i = arr.length-1;  //初始时,最后位置保持不变
-    while ( i> 0) {
+    while(i > 0) {
         var pos= 0; //每趟开始时,无记录交换
-        for (var j= 0; j< i; j++)
-            if (arr[j]> arr[j+1]) {
+        for (var j=0; j<i; j++){
+            if (arr[j] > arr[j+1]) {
                 pos = j; //记录交换的位置
                 var tmp = arr[j]; arr[j]=arr[j+1];arr[j+1]=tmp;
             }
-        i= pos; //为下一趟排序作准备
+        }
+        i = pos; //为下一趟排序作准备
      }
      return arr;
 }
@@ -68,6 +70,7 @@ function bubbleSort3(arr3) {
 最佳情况：T(n) = O(n^2)
 最差情况：T(n) = O(n^2)
 平均情况：T(n) = O(n^2)
+不稳定
 */
 function selectionSort(arr){
     var len = arr.length;
@@ -91,16 +94,17 @@ function selectionSort(arr){
 
 /*插入排序:
 工作原理是通过构造有序序列，对于未排序数据，在已排好序的序列中从后向前扫描，找到相应位置并插入
-通常采用in-place排序，即只需要O(1)的额外空间的排序，因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪威，为最新元素提供插入空间
+通常采用in-place排序，即只需要O(1)的额外空间的排序，因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间
 1）从第一个元素开始，该元素可以认为已经排好序；
 2）取出下一个元素，在已经排序的元素序列中从后向前扫描；
 3）如果该元素（已排序）大于新元素，将该元素移到下一个位置；
-4）重复步骤3，知道找到已排序的元素小于或等于新元素的位置；
+4）重复步骤3，直到找到已排序的元素小于或等于新元素的位置；
 5）将新元素插入到该位置；
 6）重复步骤2~5；
 最佳情况：正序  T(n) = O(n)
 最坏情况：反序  T(n) = O(n^2)
 平均情况：T(n) = O(n^2)
+稳定
 */
 function insertSort(arr){
     for(var i=1;i<arr.length;i++){
@@ -144,7 +148,8 @@ function binaryInsertSort(arr){
 分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。
 最佳情况：T(n) = O(nlog2 n)
 最坏情况：T(n) = O(nlog2 n)
-平均情况：T(n) =O(nlog n)
+平均情况：T(n) =O(nlog2 n)
+不稳定
 */
 function shellSort(arr){
     var len = arr.length;
@@ -174,9 +179,10 @@ function shellSort(arr){
 <1>.把长度为n的输入序列分成两个长度为n/2的子序列；
 <2>.对这两个子序列分别采用归并排序；
 <3>.将两个排序好的子序列合并成一个最终的排序序列。
-最佳情况：T(n) = O(n)
+最佳情况：T(n) = O(nlogn)
 最差情况：T(n) = O(nlogn)
 平均情况：T(n) = O(nlogn)
+稳定
 */
 
 //递归
@@ -237,6 +243,7 @@ function merge(left,right){
 最佳情况：T(n) = O(nlogn)
 最差情况：T(n) = O(n2)
 平均情况：T(n) = O(nlogn)
+不稳定
 */
 //常规快排方法
 function quickSort1(arr,left,right){
@@ -314,6 +321,7 @@ function quickSort3(arr){
 最佳情况：T(n) = O(nlogn)
 最差情况：T(n) = O(nlogn)
 平均情况：T(n) = O(nlogn)
+不稳定
 */
 function heapSort(arr){
     var heapSize = arr.length, temp;
@@ -359,6 +367,7 @@ function heapify(arr,x,len){
 最佳情况：T(n) = O(n+k)
 最差情况：T(n) = O(n+k)
 平均情况：T(n) = O(n+k)
+稳定
 */
 function countingSort(arr){
     var len = arr.length;
